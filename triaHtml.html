@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="tria2.css" />
+    <style>
+      body {
+        max-width: 30rem;
+        margin: 0 auto;
+      }
+
+      .text {
+        background-color: coral;
+        padding: 2em;
+        margin-bottom: 2em;
+        font-size: x-large;
+      }
+    </style>
+    <title>tu aventura</title>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <h1>DIAGRAMA PARA INGENIERO DE SOFTWARE FOR DUMMIES</h1>
+      </header>
+      <section class="text">text</section>
+      <footer>
+        <ul>
+          <li><button onclick="si()">si</button></li>
+          <li><button onclick="no()">no</button></li>
+        </ul>
+        <img src="triaEvolucion6.PNG" />
+      </footer>
+    </main>
+    <script>
+      const diagrama = [
+        {
+          text: "FUNCIONA ", //0
+          si: 1,
+          no: 2,
+        },
+        {
+          text: "NO LO TOQUES", //1
+          si: 10,
+          no: 10,
+        },
+        {
+          text: "LO HAS TOCADO", //2
+          si: 3,
+          no: 5,
+        },
+        {
+          text: "BURRO", //3
+          si: 4,
+          no: 4,
+        },
+        {
+          text: "LO SABE ALGUIEN", //4
+          si: 6,
+          no: 9,
+        },
+        {
+          text: "NOS DARA PROBLEMAS?", //5
+          si: 6,
+          no: 7,
+        },
+        {
+          text: "LA HAS CAGADO", //6
+          si: 8,
+          no: 8,
+        },
+        {
+          text: "LANZALO", //7
+          si: 10,
+          no: 10,
+        },
+        {
+          text: "PUEDES CULPAR A OTRO", //8
+          si: 10,
+          no: 6,
+        },
+        {
+          text: "ESCONDELO", //9
+          si: 10,
+          no: 10,
+        },
+        {
+          text: "SIN PROBLEMAS", //10
+          si: 0,
+          no: 0,
+        },
+      ];
+      //------------CODIGO OPTIMIZADO JSON
+      //   function msgActual() {
+      //     return diagrama[msgActualIn].text;
+      //   }
+      //   function askOpt() {
+      //     let res = readlineSync.question(` (si/no) `);
+      //     if (res === "si") return true;
+      //     return false;
+      //   }
+      //   function seguentPagina(opcio) {
+      //     if (opcio) return diagrama[paginaActual].si;
+      //     else return diagrama[paginaActual].no;
+      //   }
+      //   let msgActualIn = 0;
+      //   while (msgActualIn >= 0) {
+      //     console.log(msgActual());
+      //     // let opcio = askOpt();
+      //     msgActualIn = seguentPagina(askOpt());
+      //   }
+      let paginaActual = 0;
+      let text = document.querySelector(".text");
+      text.textContent = diagrama[paginaActual].text;
+      function si() {
+        paginaActual = diagrama[paginaActual].si;
+        text.textContent = diagrama[paginaActual].text;
+      }
+      function no() {
+        paginaActual = diagrama[paginaActual].no;
+        text.textContent = diagrama[paginaActual].text;
+      }
+      //   let animalFlag = "";
+      //   let historia = [
+      //     { text: "bienvenido" },
+      //     { text: "continuamos" },
+      //     { text: "volver a jugar" },
+      //     { text: "escoge un animal" },
+      //   ];
+      //   let animals = [{ text: "gato" }, { text: "perro" }, { text: "raton" }];
+      //   let msgAnimal = {
+      //     gato: "mensage gato",
+      //     perro: "mensage perro",
+      //     raton: "mensage raton",
+      //   };
+      //   // let msgAnimalJs={
+      //   //     gato:'mensage gato'},
+      //   //     {perro:'mensage perro'},
+      //   //     {raton:'mensage raton'},
+
+      //   // }
+      //   //alert(msgAnimal["gato"]);
+      //   //const obj = JSON.parse(msgAnimalJs);
+      //   let pagina = 0;
+      //   let text = document.querySelector(".text");
+      //   text.textContent = historia[pagina].text;
+
+      //   function ferSi() {
+      //     pagina = pagina + 1;
+      //     if (pagina == 4) {
+      //       // alert("imprimir animales");
+      //       text.innerHTML = "";
+      //       let cont = 0;
+
+      //       while (cont < 3) {
+      //         let btnElemnt = document.createElement("button");
+      //         //alert(animals[cont].text);
+      //         //let msg=animals[cont].text;
+      //         btnElemnt.onclick = function () {
+      //           //alert(animals[cont].text);
+      //           //alert(this.innerHTML);
+      //           //alert(msgAnimal[this.innerHTML]);
+      //           text.innerHTML = msgAnimal[this.innerHTML];
+      //           //text.innerHTML = "";
+      //           animalFlag = this.innerHTML;
+      //           //alert(msgAnimalJs.this.innerHTML);
+      //           //alert(obj.this.innerHTML);
+      //         };
+      //         btnElemnt.innerHTML = animals[cont].text;
+      //         text.appendChild(btnElemnt);
+      //         cont++;
+      //       }
+      //     } else {
+      //       text.textContent = historia[pagina].text;
+      //     }
+      //   }
+      //   function ferNo() {
+      //     pagina = pagina - 1;
+      //     text.textContent = historia[pagina].text;
+      //     if (animalFlag != "") {
+      //       // if(text.firstChild){
+      //       // let hasChild = document.getElementsByTagName('strong')!= null;
+      //       // if (hasChild) {
+      //       //     alert("haschild");
+      //       //     // console.log("hasChildIN", text.hasChildNodes());
+      //       //     // de esta forma se que si hay un strong
+      //       //     // vengo de la vista que no quieres adoptar?
+
+      //       //     text.innerHTML = "gracia por su feedback";
+
+      //       // }
+      //       // else {
+      //       text.innerHTML = "";
+      //       let elemtemporal = document.createElement("strong");
+      //       elemtemporal.innerHTML = "no quieres adoptar un " + animalFlag;
+      //       text.appendChild(elemtemporal);
+      //       let elemstr = document.getElementsByTagName("strong");
+      //       //alert(elemstr);
+      //       console.log(elemstr);
+
+      //       // }
+      //     }
+      //     //alert(animalFlag);
+      //   }
+    </script>
+  </body>
+</html>
